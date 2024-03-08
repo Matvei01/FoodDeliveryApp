@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.text = "Hello World!"
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 40, weight: UIFont.Weight(20))
+        label.font = .Roboto.blackItalic.size(of: 45)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     }
 }
 
-// MARK: -  Private Methods
+// MARK: -  Constraints
 private extension ViewController {
     func setConstraints() {
         NSLayoutConstraint.activate([
