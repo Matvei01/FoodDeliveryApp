@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     private lazy var testLabel: UILabel = {
         let label = UILabel()
         label.text = "Hello World!"
-        label.textColor = .white
+        label.textColor = AppColors.accentOrange
         label.font = .Roboto.blackItalic.size(of: 45)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     // MARK: -  Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
+        view.backgroundColor = AppColors.background
         view.addSubview(testLabel)
         setConstraints()
     }
