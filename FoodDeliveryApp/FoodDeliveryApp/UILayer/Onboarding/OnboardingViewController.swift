@@ -38,6 +38,7 @@ final class OnboardingViewController: UIViewController {
     // MARK: - Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = AppColors.accentOrange
         setupPageViewController()
         setupPageControl()
         setConstraints()
@@ -51,7 +52,11 @@ private extension OnboardingViewController {
         pageViewController.dataSource = self
         
         guard let firstPage = pages.first else { return }
-        pageViewController.setViewControllers([firstPage], direction: .forward, animated: true)
+        pageViewController.setViewControllers(
+            [firstPage],
+            direction: .forward,
+            animated: true
+        )
         
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
@@ -62,14 +67,18 @@ private extension OnboardingViewController {
         view.addSubview(pageControl)
         pageControl.numberOfPages = pages.count
         pageControl.currentPage = 0
-        
         pageControl.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setConstraints() {
         NSLayoutConstraint.activate([
-            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -45)
+            pageControl.centerXAnchor.constraint(
+                equalTo: view.centerXAnchor
+            ),
+            pageControl.bottomAnchor.constraint(
+                equalTo: view.bottomAnchor,
+                constant: -45
+            )
         ])
     }
 }
@@ -80,7 +89,7 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         guard let currentIndex = pages.firstIndex(of: viewController),
-              currentIndex > 0 else { return UIViewController() }
+              currentIndex > 0 else { return nil }
         
         return pages[currentIndex - 1]
     }
@@ -89,7 +98,7 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         guard let currentIndex = pages.firstIndex(of: viewController),
-              currentIndex < pages.count - 1 else { return UIViewController() }
+              currentIndex < pages.count - 1 else { return nil }
         
         return pages[currentIndex + 1]
     }

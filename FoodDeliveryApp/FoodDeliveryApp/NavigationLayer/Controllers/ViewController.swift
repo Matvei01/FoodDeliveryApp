@@ -33,9 +33,18 @@ final class ViewController: UIViewController {
 private extension ViewController {
     func setConstraints() {
         NSLayoutConstraint.activate([
-            testLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
-            testLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-            testLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
+            testLabel.topAnchor.constraint(
+                equalTo: view.topAnchor,
+                constant: 200
+            ),
+            testLabel.leftAnchor.constraint(
+                equalTo: view.leftAnchor,
+                constant: 20
+            ),
+            testLabel.rightAnchor.constraint(
+                equalTo: view.rightAnchor,
+                constant: -20
+            )
         ])
     }
 }
