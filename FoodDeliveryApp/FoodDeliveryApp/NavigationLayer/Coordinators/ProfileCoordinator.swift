@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ProfileCoordinator: Coordinator {
+final class ProfileCoordinator: Coordinator {
+    
     override func start() {
         let viewController = ViewController()
         viewController.view.backgroundColor = .blue

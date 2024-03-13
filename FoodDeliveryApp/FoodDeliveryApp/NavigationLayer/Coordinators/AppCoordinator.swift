@@ -7,11 +7,11 @@
 
 import UIKit
 
-class AppCoordinator: Coordinator {
+final class AppCoordinator: Coordinator {
     
     override func start() {
-        showMainFlow()
-        //showOnboardingFlow()
+        //showMainFlow()
+        showOnboardingFlow()
     }
     
     override func finish() {

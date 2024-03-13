@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     // MARK: -  UI Elements
     private lazy var testLabel: UILabel = {

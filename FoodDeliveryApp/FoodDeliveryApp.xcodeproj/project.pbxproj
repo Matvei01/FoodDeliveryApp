@@ -36,6 +36,8 @@
 		1ABF01312B9C74FB00880D9B /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF01302B9C74FB00880D9B /* ListCoordinator.swift */; };
 		1ABF01332B9C754900880D9B /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF01322B9C754900880D9B /* ProfileCoordinator.swift */; };
 		1ABF01352B9C75D700880D9B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF01342B9C75D700880D9B /* TabBarController.swift */; };
+		1AF1221C2BA0B691000B5C75 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF1221B2BA0B691000B5C75 /* OnboardingViewController.swift */; };
+		1AF122202BA0B77A000B5C75 /* OnboardingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF1221F2BA0B77A000B5C75 /* OnboardingViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		1ABF01302B9C74FB00880D9B /* ListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinator.swift; sourceTree = "<group>"; };
 		1ABF01322B9C754900880D9B /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		1ABF01342B9C75D700880D9B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		1AF1221B2BA0B691000B5C75 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		1AF1221F2BA0B77A000B5C75 /* OnboardingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 		1ABE51BC2B9B848A00698545 /* FoodDeliveryApp */ = {
 			isa = PBXGroup;
 			children = (
+				1AF122192BA0B54B000B5C75 /* UILayer */,
 				1ABF01232B9C4F4100880D9B /* NavigationLayer */,
 				1ABE51EE2B9B91E100698545 /* Extensions */,
 				1ABE51D12B9B8B7900698545 /* Resources */,
@@ -200,6 +205,23 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		1AF122192BA0B54B000B5C75 /* UILayer */ = {
+			isa = PBXGroup;
+			children = (
+				1AF1221A2BA0B617000B5C75 /* Onboarding */,
+			);
+			path = UILayer;
+			sourceTree = "<group>";
+		};
+		1AF1221A2BA0B617000B5C75 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				1AF1221B2BA0B691000B5C75 /* OnboardingViewController.swift */,
+				1AF1221F2BA0B77A000B5C75 /* OnboardingViewPresenter.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -290,12 +312,14 @@
 				1ABF012B2B9C685400880D9B /* OnboardingCoordinator.swift in Sources */,
 				1ABF01292B9C65E900880D9B /* AppCoordinator.swift in Sources */,
 				1ABF012F2B9C74AD00880D9B /* OrderCoordinator.swift in Sources */,
+				1AF1221C2BA0B691000B5C75 /* OnboardingViewController.swift in Sources */,
 				1ABE51F02B9B923300698545 /* Extension+UIFont.swift in Sources */,
 				1ABF01332B9C754900880D9B /* ProfileCoordinator.swift in Sources */,
 				1ABF01312B9C74FB00880D9B /* ListCoordinator.swift in Sources */,
 				1ABF012D2B9C745300880D9B /* HomeCoordinator.swift in Sources */,
 				1ABF01352B9C75D700880D9B /* TabBarController.swift in Sources */,
 				1ABE51C02B9B848A00698545 /* SceneDelegate.swift in Sources */,
+				1AF122202BA0B77A000B5C75 /* OnboardingViewPresenter.swift in Sources */,
 				1ABF01272B9C509D00880D9B /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

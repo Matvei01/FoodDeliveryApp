@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ListCoordinator: Coordinator {
+final class ListCoordinator: Coordinator {
+    
     override func start() {
         let viewController = ViewController()
         viewController.view.backgroundColor = .green

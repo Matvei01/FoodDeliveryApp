@@ -7,7 +7,8 @@
 
 import UIKit
 
-class OrderCoordinator: Coordinator {
+final class OrderCoordinator: Coordinator {
+    
     override func start() {
         let viewController = ViewController()
         viewController.view.backgroundColor = .yellow
