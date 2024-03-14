@@ -11,19 +11,63 @@ import UIKit
 final class OnboardingViewController: UIViewController {
     
     // MARK: - Properties
-    private var pages = [UIViewController]()
+    private var pages = [OnboardingPartViewController]()
     weak var viewOutput: OnboardingViewOutput?
     
     // MARK: - Views
-    private let pageViewController = UIPageViewController(
-        transitionStyle: .scroll,
-        navigationOrientation: .horizontal
-    )
-    private let pageControl = UIPageControl()
+    private lazy var pageViewController: UIPageViewController = {
+        let pageViewController = UIPageViewController(
+            transitionStyle: .scroll,
+            navigationOrientation: .horizontal
+        )
+        
+        pageViewController.delegate = self
+        pageViewController.dataSource = self
+        
+        if let firstPage = pages.first {
+            pageViewController.setViewControllers(
+                [firstPage],
+                direction: .forward,
+                animated: true
+            )
+        }
+        
+        addChild(pageViewController)
+        
+        pageViewController.didMove(toParent: self)
+        
+        return pageViewController
+    }()
+    
+    private lazy var pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.numberOfPages = pages.count
+        pageControl.currentPage = 0
+        let page = pages[0]
+        let title = page.buttonText
+        bottomButton.setTitle(title, for: .normal)
+        
+        pageControl.isUserInteractionEnabled = false
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        return pageControl
+    }()
+    
+    private lazy var bottomButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = AppColors.grey
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = .Roboto.bold.size(of: 18)
+        button.setTitleColor(AppColors.black, for: .normal)
+        button.layer.cornerRadius = 16
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        
+        return button
+    }()
     
     // MARK: - Initializer
     init(
-        pages: [UIViewController] = [UIViewController](),
+        pages: [OnboardingPartViewController] = [OnboardingPartViewController](),
         viewOutput: OnboardingViewOutput
     ) {
         self.pages = pages
@@ -38,39 +82,76 @@ final class OnboardingViewController: UIViewController {
     // MARK: - Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = AppColors.accentOrange
-        setupPageViewController()
-        setupPageControl()
-        setConstraints()
+        setupView()
     }
 }
 
-// MARK: - Layout
+// MARK: - Private methods
 private extension OnboardingViewController {
-    func setupPageViewController() {
-        pageViewController.delegate = self
-        pageViewController.dataSource = self
-        
-        guard let firstPage = pages.first else { return }
-        pageViewController.setViewControllers(
-            [firstPage],
-            direction: .forward,
-            animated: true
+    func setupView() {
+        view.backgroundColor = AppColors.accentOrange
+        setupSubviews(
+            pageViewController.view,
+            pageControl,
+            bottomButton
         )
-        
-        addChild(pageViewController)
-        view.addSubview(pageViewController.view)
-        pageViewController.didMove(toParent: self)
+        setConstraints()
     }
     
-    func setupPageControl() {
-        view.addSubview(pageControl)
-        pageControl.numberOfPages = pages.count
-        pageControl.currentPage = 0
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
+    func setupSubviews(_ subviews: UIView... ) {
+        for subview in subviews {
+            view.addSubview(subview)
+        }
     }
-    
+}
+
+// MARK: - Actions
+private extension OnboardingViewController {
+    @objc func buttonPressed() {
+        switch pageControl.currentPage {
+        case 0:
+            pageControl.currentPage = 1
+            pageViewController.setViewControllers(
+                [pages[1]],
+                direction: .forward,
+                animated: true,
+                completion: nil
+            )
+            bottomButton.setTitle(pages[1].buttonText, for: .normal)
+            
+        case 1:
+            pageControl.currentPage = 2
+            pageViewController.setViewControllers(
+                [pages[2]],
+                direction: .forward,
+                animated: true,
+                completion: nil
+            )
+            bottomButton.setTitle(pages[2].buttonText, for: .normal)
+            
+        case 2:
+            pageControl.currentPage = 3
+            pageViewController.setViewControllers(
+                [pages[3]],
+                direction: .forward,
+                animated: true,
+                completion: nil
+            )
+            bottomButton.setTitle(pages[3].buttonText, for: .normal)
+        default:
+            print("Exit")
+        }
+    }
+}
+
+// MARK: - Constraints
+private extension OnboardingViewController {
     func setConstraints() {
+        setConstraintsForePageControl()
+        setConstraintsForeBottomButton()
+    }
+    
+    func setConstraintsForePageControl() {
         NSLayoutConstraint.activate([
             pageControl.centerXAnchor.constraint(
                 equalTo: view.centerXAnchor
@@ -81,6 +162,26 @@ private extension OnboardingViewController {
             )
         ])
     }
+    
+    func setConstraintsForeBottomButton() {
+        NSLayoutConstraint.activate([
+            bottomButton.bottomAnchor.constraint(
+                equalTo: pageControl.topAnchor,
+                constant: -44
+            ),
+            bottomButton.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor,
+                constant: 30
+            ),
+            bottomButton.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor,
+                constant: -30
+            ),
+            bottomButton.heightAnchor.constraint(
+                equalToConstant: 50
+            )
+        ])
+    }
 }
 
 // MARK: - UIPageViewControllerDataSource delegate
@@ -88,7 +189,7 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        guard let currentIndex = pages.firstIndex(of: viewController),
+        guard let currentIndex = pages.firstIndex(of: viewController as! OnboardingPartViewController),
               currentIndex > 0 else { return nil }
         
         return pages[currentIndex - 1]
@@ -97,7 +198,7 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        guard let currentIndex = pages.firstIndex(of: viewController),
+        guard let currentIndex = pages.firstIndex(of: viewController as! OnboardingPartViewController),
               currentIndex < pages.count - 1 else { return nil }
         
         return pages[currentIndex + 1]
@@ -110,8 +211,11 @@ extension OnboardingViewController: UIPageViewControllerDelegate {
                             willTransitionTo pendingViewControllers: [UIViewController]) {
         
         if let pendingVC = pendingViewControllers.first,
-           let index = pages.firstIndex(of: pendingVC) {
+           let index = pages.firstIndex(of: pendingVC as! OnboardingPartViewController) {
             pageControl.currentPage = index
+            let page = pages[index]
+            let title = page.buttonText
+            bottomButton.setTitle(title, for: .normal)
         }
     }
 }

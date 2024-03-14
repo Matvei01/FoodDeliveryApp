@@ -29,6 +29,8 @@ final class OnboardingPartViewController: UIViewController {
         }
     }
     
+    var buttonText: String?
+    
     // MARK: - Views
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -56,7 +58,11 @@ final class OnboardingPartViewController: UIViewController {
 private extension OnboardingPartViewController {
     func setupView() {
         view.backgroundColor = AppColors.accentOrange
-        setupSubviews(imageView, titleLabel, descriptionLabel)
+        setupSubviews(
+            imageView,
+            titleLabel,
+            descriptionLabel
+        )
         setConstraints()
     }
     
@@ -67,7 +73,6 @@ private extension OnboardingPartViewController {
     }
     
     func setupLabel(font: UIFont) -> UILabel {
-        
         let label = UILabel()
         label.font = font
         label.textColor = AppColors.white
