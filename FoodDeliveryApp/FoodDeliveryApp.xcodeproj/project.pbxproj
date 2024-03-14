@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AB9C1E72BA3483C0000CF71 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9C1E62BA3483C0000CF71 /* UserStorage.swift */; };
 		1ABE51BE2B9B848A00698545 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE51BD2B9B848A00698545 /* AppDelegate.swift */; };
 		1ABE51C02B9B848A00698545 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE51BF2B9B848A00698545 /* SceneDelegate.swift */; };
 		1ABE51C22B9B848A00698545 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE51C12B9B848A00698545 /* ViewController.swift */; };
@@ -36,9 +37,13 @@
 		1ABF01312B9C74FB00880D9B /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF01302B9C74FB00880D9B /* ListCoordinator.swift */; };
 		1ABF01332B9C754900880D9B /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF01322B9C754900880D9B /* ProfileCoordinator.swift */; };
 		1ABF01352B9C75D700880D9B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF01342B9C75D700880D9B /* TabBarController.swift */; };
+		1AF1221C2BA0B691000B5C75 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF1221B2BA0B691000B5C75 /* OnboardingViewController.swift */; };
+		1AF122202BA0B77A000B5C75 /* OnboardingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF1221F2BA0B77A000B5C75 /* OnboardingViewPresenter.swift */; };
+		1AF122222BA23549000B5C75 /* OnboardingPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF122212BA23549000B5C75 /* OnboardingPartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AB9C1E62BA3483C0000CF71 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		1ABE51BA2B9B848A00698545 /* FoodDeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodDeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABE51BD2B9B848A00698545 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ABE51BF2B9B848A00698545 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +75,9 @@
 		1ABF01302B9C74FB00880D9B /* ListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinator.swift; sourceTree = "<group>"; };
 		1ABF01322B9C754900880D9B /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		1ABF01342B9C75D700880D9B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		1AF1221B2BA0B691000B5C75 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		1AF1221F2BA0B77A000B5C75 /* OnboardingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPresenter.swift; sourceTree = "<group>"; };
+		1AF122212BA23549000B5C75 /* OnboardingPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AB9C1E52BA3481C0000CF71 /* ServicesLayer */ = {
+			isa = PBXGroup;
+			children = (
+				1AB9C1E62BA3483C0000CF71 /* UserStorage.swift */,
+			);
+			path = ServicesLayer;
+			sourceTree = "<group>";
+		};
 		1ABE51B12B9B848A00698545 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +118,8 @@
 		1ABE51BC2B9B848A00698545 /* FoodDeliveryApp */ = {
 			isa = PBXGroup;
 			children = (
+				1AB9C1E52BA3481C0000CF71 /* ServicesLayer */,
+				1AF122192BA0B54B000B5C75 /* UILayer */,
 				1ABF01232B9C4F4100880D9B /* NavigationLayer */,
 				1ABE51EE2B9B91E100698545 /* Extensions */,
 				1ABE51D12B9B8B7900698545 /* Resources */,
@@ -200,6 +218,24 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		1AF122192BA0B54B000B5C75 /* UILayer */ = {
+			isa = PBXGroup;
+			children = (
+				1AF1221A2BA0B617000B5C75 /* Onboarding */,
+			);
+			path = UILayer;
+			sourceTree = "<group>";
+		};
+		1AF1221A2BA0B617000B5C75 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				1AF1221B2BA0B691000B5C75 /* OnboardingViewController.swift */,
+				1AF1221F2BA0B77A000B5C75 /* OnboardingViewPresenter.swift */,
+				1AF122212BA23549000B5C75 /* OnboardingPartViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -290,12 +326,16 @@
 				1ABF012B2B9C685400880D9B /* OnboardingCoordinator.swift in Sources */,
 				1ABF01292B9C65E900880D9B /* AppCoordinator.swift in Sources */,
 				1ABF012F2B9C74AD00880D9B /* OrderCoordinator.swift in Sources */,
+				1AF1221C2BA0B691000B5C75 /* OnboardingViewController.swift in Sources */,
 				1ABE51F02B9B923300698545 /* Extension+UIFont.swift in Sources */,
 				1ABF01332B9C754900880D9B /* ProfileCoordinator.swift in Sources */,
 				1ABF01312B9C74FB00880D9B /* ListCoordinator.swift in Sources */,
 				1ABF012D2B9C745300880D9B /* HomeCoordinator.swift in Sources */,
 				1ABF01352B9C75D700880D9B /* TabBarController.swift in Sources */,
+				1AF122222BA23549000B5C75 /* OnboardingPartViewController.swift in Sources */,
+				1AB9C1E72BA3483C0000CF71 /* UserStorage.swift in Sources */,
 				1ABE51C02B9B848A00698545 /* SceneDelegate.swift in Sources */,
+				1AF122202BA0B77A000B5C75 /* OnboardingViewPresenter.swift in Sources */,
 				1ABF01272B9C509D00880D9B /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

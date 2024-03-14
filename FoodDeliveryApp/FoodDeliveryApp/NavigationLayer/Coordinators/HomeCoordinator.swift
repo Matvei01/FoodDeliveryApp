@@ -7,7 +7,8 @@
 
 import UIKit
 
-class HomeCoordinator: Coordinator {
+final class HomeCoordinator: Coordinator {
+    
     override func start() {
         let viewController = ViewController()
         viewController.view.backgroundColor = .red
