@@ -12,7 +12,7 @@ final class OnboardingViewController: UIViewController {
     
     // MARK: - Properties
     private var pages = [OnboardingPartViewController]()
-    weak var viewOutput: OnboardingViewOutput?
+    var viewOutput: OnboardingViewOutput?
     
     // MARK: - Views
     private lazy var pageViewController: UIPageViewController = {
@@ -59,7 +59,7 @@ final class OnboardingViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .Roboto.bold.size(of: 18)
         button.setTitleColor(AppColors.black, for: .normal)
-        button.layer.cornerRadius = 16
+        button.layer.cornerRadius = 24
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         
         return button
@@ -140,6 +140,7 @@ private extension OnboardingViewController {
             bottomButton.setTitle(pages[3].buttonText, for: .normal)
         default:
             print("Exit")
+            viewOutput?.onboardingFinish()
         }
     }
 }
