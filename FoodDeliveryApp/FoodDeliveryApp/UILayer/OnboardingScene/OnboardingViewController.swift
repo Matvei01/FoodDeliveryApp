@@ -84,6 +84,7 @@ final class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setConstraints()
     }
 }
 
@@ -96,7 +97,6 @@ private extension OnboardingViewController {
             pageControl,
             bottomButton
         )
-        setConstraints()
     }
     
     func setupSubviews(_ subviews: UIView... ) {
