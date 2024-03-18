@@ -46,7 +46,7 @@ final class OnboardingViewController: UIViewController {
         pageControl.currentPage = 0
         let page = pages[0]
         let title = page.buttonText
-        bottomButton.setTitle(title, for: .normal)
+        bottomButton.setTitle(title)
         
         pageControl.isUserInteractionEnabled = false
         pageControl.translatesAutoresizingMaskIntoConstraints = false
@@ -54,14 +54,11 @@ final class OnboardingViewController: UIViewController {
         return pageControl
     }()
     
-    private lazy var bottomButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = AppColors.grey
+    private lazy var bottomButton: FoodDeliveryButton = {
+        let button = FoodDeliveryButton()
+        button.action = buttonPressed
+        button.scheme = .grey
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font = .Roboto.bold.size(of: 18)
-        button.setTitleColor(AppColors.black, for: .normal)
-        button.layer.cornerRadius = 24
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         
         return button
     }()
@@ -118,7 +115,7 @@ private extension OnboardingViewController {
                 animated: true,
                 completion: nil
             )
-            bottomButton.setTitle(pages[1].buttonText, for: .normal)
+            bottomButton.setTitle(pages[1].buttonText)
             
         case 1:
             pageControl.currentPage = 2
@@ -128,7 +125,7 @@ private extension OnboardingViewController {
                 animated: true,
                 completion: nil
             )
-            bottomButton.setTitle(pages[2].buttonText, for: .normal)
+            bottomButton.setTitle(pages[2].buttonText)
             
         case 2:
             pageControl.currentPage = 3
@@ -138,7 +135,7 @@ private extension OnboardingViewController {
                 animated: true,
                 completion: nil
             )
-            bottomButton.setTitle(pages[3].buttonText, for: .normal)
+            bottomButton.setTitle(pages[3].buttonText)
         default:
             print("Exit")
             viewOutput?.onboardingFinish()
@@ -223,7 +220,7 @@ extension OnboardingViewController: UIPageViewControllerDelegate {
             pageControl.currentPage = currentPageIndex
             let page = pages[currentPageIndex]
             let title = page.buttonText
-            bottomButton.setTitle(title, for: .normal)
+            bottomButton.setTitle(title)
         }
     }
 }

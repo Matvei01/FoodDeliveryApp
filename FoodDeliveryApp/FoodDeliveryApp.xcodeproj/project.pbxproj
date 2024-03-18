@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A0671612BA433410023B53C /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0671602BA433410023B53C /* SceneFactory.swift */; };
+		1A182A4D2BA8333D005CA284 /* FoodDeliveryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A182A4C2BA8333D005CA284 /* FoodDeliveryButton.swift */; };
 		1A67E1572BA761280036F874 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67E1562BA761280036F874 /* LoginViewController.swift */; };
 		1A67E15C2BA762A00036F874 /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67E15B2BA762A00036F874 /* BottomView.swift */; };
 		1AB9C1E72BA3483C0000CF71 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9C1E62BA3483C0000CF71 /* UserStorage.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		1A0671602BA433410023B53C /* SceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFactory.swift; sourceTree = "<group>"; };
+		1A182A4C2BA8333D005CA284 /* FoodDeliveryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDeliveryButton.swift; sourceTree = "<group>"; };
 		1A67E1562BA761280036F874 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1A67E15B2BA762A00036F874 /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		1AB9C1E62BA3483C0000CF71 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
@@ -103,6 +105,31 @@
 				1A0671602BA433410023B53C /* SceneFactory.swift */,
 			);
 			path = SceneFactory;
+			sourceTree = "<group>";
+		};
+		1A182A492BA83274005CA284 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A182A4C2BA8333D005CA284 /* FoodDeliveryButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1A182A4A2BA832B6005CA284 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				1A06715F2BA4326D0023B53C /* SceneFactory */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		1A182A4B2BA832D0005CA284 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1A67E1552BA760B60036F874 /* AuthScene */,
+				1AF1221A2BA0B617000B5C75 /* OnboardingScene */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		1A67E1552BA760B60036F874 /* AuthScene */ = {
@@ -268,9 +295,9 @@
 		1AF122192BA0B54B000B5C75 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
-				1A06715F2BA4326D0023B53C /* SceneFactory */,
-				1A67E1552BA760B60036F874 /* AuthScene */,
-				1AF1221A2BA0B617000B5C75 /* OnboardingScene */,
+				1A182A4B2BA832D0005CA284 /* Scenes */,
+				1A182A4A2BA832B6005CA284 /* Factory */,
+				1A182A492BA83274005CA284 /* Views */,
 			);
 			path = UILayer;
 			sourceTree = "<group>";
@@ -387,6 +414,7 @@
 				1A0671612BA433410023B53C /* SceneFactory.swift in Sources */,
 				1ABE51C02B9B848A00698545 /* SceneDelegate.swift in Sources */,
 				1A67E15C2BA762A00036F874 /* BottomView.swift in Sources */,
+				1A182A4D2BA8333D005CA284 /* FoodDeliveryButton.swift in Sources */,
 				1AF122202BA0B77A000B5C75 /* OnboardingViewPresenter.swift in Sources */,
 				1ABF01272B9C509D00880D9B /* Coordinator.swift in Sources */,
 			);
